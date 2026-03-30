@@ -22,9 +22,9 @@ public class CrimeStatController {
   @Autowired
   private CrimeService crimeService;
 
-  @GetMapping("/location")
+  @GetMapping("/filter")
   public String location() {
-    return "Location: 123 Main St, Anytown, USA";
+    return "AREA";
   }
 
   @Async 

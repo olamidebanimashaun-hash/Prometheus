@@ -1,11 +1,10 @@
 # Data-Prediction
 Data-Prediction Site
 
-General Plan
-Create Simple database. either SQL/NoSql
-
 Create Java based API
     retrives data based on simple filters
+        have a filter request that loads different options
+        amount of offences in an area(specific area, all area, change offence type)
     Creates a prediction on the data and appends the result
 
 Create Simple UI

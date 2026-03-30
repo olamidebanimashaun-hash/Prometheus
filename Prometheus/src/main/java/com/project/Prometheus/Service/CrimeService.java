@@ -22,7 +22,6 @@ public class CrimeService {
         List<CrimeResult> crimeResults = new ArrayList<CrimeResult>();
         List<CrimeEntity> crimes = crimeRepo.getCrimes(filter);
         for (CrimeEntity crime : crimes) {
-            System.out.println(crime);
             CrimeResult cr = new CrimeResult(
                     crime.getSTATISTIC_LABEL(),
                     crime.getYEAR_DATE(),
