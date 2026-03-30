@@ -13,37 +13,95 @@ import jakarta.persistence.Table;
 public class CrimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long ID;
+    private String STATISTIC_LABEL;
+    private String YEAR_DATE;
+    private String OFFENCE;
+    private String DIVISION;
+    private String UNIT;
+    private Integer AMOUNT;
 
-    private String typeoffence;
-    private String division;
-    public Long getId() {
-        return id;
-    }
-    public void setId(Long id) {
-        this.id = id;
-    }
-    public String getTypeOffence() {
-        return typeoffence;
-    }
-    public void setTypeOffence(String typeoffence) {
-        this.typeoffence = typeoffence;
-    }
-    public String getDivision() {
-        return division;
-    }
-    public void setDivision(String division) {
-        this.division = division;
-    }
     
-@Override
-public String toString() {
-    // Getters and setters
-    return "CrimeEntity{" +
-            "id=" + id +
-            ", gardaDivision='" + division + '\'' +
-            ", typeOfOffence='" + typeoffence + '\'' +
- 
-            '}';
-}
+    
+public Long getID() {
+        return ID;
+    }
+
+
+
+    public void setID(Long iD) {
+        ID = iD;
+    }
+
+
+
+    public String getSTATISTIC_LABEL() {
+        return STATISTIC_LABEL;
+    }
+
+
+
+    public void setSTATISTIC_LABEL(String sTATISTIC_LABEL) {
+        STATISTIC_LABEL = sTATISTIC_LABEL;
+    }
+
+
+
+    public String getYEAR_DATE() {
+        return YEAR_DATE;
+    }
+
+
+
+    public void setYEAR_DATE(String yEAR_DATE) {
+        YEAR_DATE = yEAR_DATE;
+    }
+
+
+
+    public String getOFFENCE() {
+        return OFFENCE;
+    }
+
+
+
+    public void setOFFENCE(String oFFENCE) {
+        OFFENCE = oFFENCE;
+    }
+
+
+
+    public String getDIVISION() {
+        return DIVISION;
+    }
+
+
+
+    public void setDIVISION(String dIVISION) {
+        DIVISION = dIVISION;
+    }
+
+
+
+    public String getUNIT() {
+        return UNIT;
+    }
+
+
+
+    public void setUNIT(String uNIT) {
+        UNIT = uNIT;
+    }
+
+
+
+    public Integer getAMOUNT() {
+        return AMOUNT;
+    }
+
+
+
+    public void setAMOUNT(Integer aMOUNT) {
+        AMOUNT = aMOUNT;
+    }
 }

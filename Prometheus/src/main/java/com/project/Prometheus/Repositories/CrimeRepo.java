@@ -22,8 +22,8 @@ public class CrimeRepo{
 
     public List<CrimeEntity> getCrimes(Filter filter){
         // This method will query the database and return a list of crimes based on the filter
-        return entityManager.createQuery("SELECT c FROM CrimeEntity c WHERE c.typeoffence = :typeoffence", CrimeEntity.class)
-                .setParameter("typeoffence", filter.getType())
+        return entityManager.createQuery("SELECT c FROM CrimeEntity c WHERE c.OFFENCE = :OFFENCE", CrimeEntity.class)
+                .setParameter("OFFENCE", filter.getType())
                 // .setParameter("startDate", filter.getStartDate())
                 // .setParameter("endDate", filter.getEndDate())
                 .getResultList();

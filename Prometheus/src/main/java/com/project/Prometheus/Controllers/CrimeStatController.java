@@ -3,6 +3,8 @@ package com.project.Prometheus.Controllers;
 import com.project.Prometheus.Constants.Filter;
 import com.project.Prometheus.Entities.CrimeResult;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,11 +29,8 @@ public class CrimeStatController {
 
   @Async 
   @PostMapping("/offence")
-  public String offence(@RequestBody Filter filter) {
-    System.out.println(filter.getType());
-    System.out.println(crimeService.getCrimes(filter));
-    CrimeResult crimeResult = crimeService.getCrimes(filter).get(0);
-    return crimeResult.typeOffence();
+  public List<CrimeResult> offence(@RequestBody Filter filter) {
+    return  crimeService.getCrimes(filter);
   }
 
 
