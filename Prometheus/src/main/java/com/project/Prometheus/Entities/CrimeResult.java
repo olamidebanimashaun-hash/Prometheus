@@ -1,10 +1,11 @@
 package com.project.Prometheus.Entities;
 
 public record CrimeResult(
-        String statisticLabel,
-        String yearDate,
+        String garda_division,
+        Integer year,
+        Integer quarter,
         String offence,
-        String division,
-        Integer amount
+        String offence_code,
+        Integer offence_count
 ) {
-}
+}                  

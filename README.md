@@ -13,3 +13,6 @@ Create Simple UI
 
 Cloud
     AZURE/AWS
+
+
+Data - https://www.kaggle.com/datasets/sameerkulkarni91/crime-in-ireland?select=IRELAND_CRIME_GARDA_DIVISION_wise_2003-2019.csv 

@@ -13,95 +13,65 @@ import jakarta.persistence.Table;
 public class CrimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ID;
-    private String STATISTIC_LABEL;
-    private String YEAR_DATE;
-    private String OFFENCE;
-    private String DIVISION;
-    private String UNIT;
-    private Integer AMOUNT;
+    private Long id;
+    private String region;
+    private String garda_division;
+    private String offence_code;
+    private String offence;
+    private Integer year;
+    private Integer quarter;
+    private Integer offence_count;
+    
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public String getRegion() {
+        return region;
+    }
+    public void setRegion(String region) {
+        this.region = region;
+    }
+    public String getGarda_division() {
+        return garda_division;
+    }
+    public void setGarda_division(String garda_division) {
+        this.garda_division = garda_division;
+    }
+    public String getOffence_code() {
+        return offence_code;
+    }
+    public void setOffence_code(String offence_code) {
+        this.offence_code = offence_code;
+    }
+    public String getOffence() {
+        return offence;
+    }
+    public void setOffence(String offence) {
+        this.offence = offence;
+    }
+    public Integer getYear() {
+        return year;
+    }
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+    public Integer getQuarter() {
+        return quarter;
+    }
+    public void setQuarter(Integer quarter) {
+        this.quarter = quarter;
+    }
+    public Integer getOffence_count() {
+        return offence_count;
+    }
+    public void setOffence_count(Integer offence_count) {
+        this.offence_count = offence_count;
+    }
 
     
+
     
-public Long getID() {
-        return ID;
-    }
-
-
-
-    public void setID(Long iD) {
-        ID = iD;
-    }
-
-
-
-    public String getSTATISTIC_LABEL() {
-        return STATISTIC_LABEL;
-    }
-
-
-
-    public void setSTATISTIC_LABEL(String sTATISTIC_LABEL) {
-        STATISTIC_LABEL = sTATISTIC_LABEL;
-    }
-
-
-
-    public String getYEAR_DATE() {
-        return YEAR_DATE;
-    }
-
-
-
-    public void setYEAR_DATE(String yEAR_DATE) {
-        YEAR_DATE = yEAR_DATE;
-    }
-
-
-
-    public String getOFFENCE() {
-        return OFFENCE;
-    }
-
-
-
-    public void setOFFENCE(String oFFENCE) {
-        OFFENCE = oFFENCE;
-    }
-
-
-
-    public String getDIVISION() {
-        return DIVISION;
-    }
-
-
-
-    public void setDIVISION(String dIVISION) {
-        DIVISION = dIVISION;
-    }
-
-
-
-    public String getUNIT() {
-        return UNIT;
-    }
-
-
-
-    public void setUNIT(String uNIT) {
-        UNIT = uNIT;
-    }
-
-
-
-    public Integer getAMOUNT() {
-        return AMOUNT;
-    }
-
-
-
-    public void setAMOUNT(Integer aMOUNT) {
-        AMOUNT = aMOUNT;
-    }
 }

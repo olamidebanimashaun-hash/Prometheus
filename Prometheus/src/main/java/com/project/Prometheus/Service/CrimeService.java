@@ -23,11 +23,12 @@ public class CrimeService {
         List<CrimeEntity> crimes = crimeRepo.getCrimes(filter);
         for (CrimeEntity crime : crimes) {
             CrimeResult cr = new CrimeResult(
-                    crime.getSTATISTIC_LABEL(),
-                    crime.getYEAR_DATE(),
-                    crime.getOFFENCE(),
-                    crime.getDIVISION(),
-                    crime.getAMOUNT()
+                    crime.getGarda_division(),
+                    crime.getYear(),
+                    crime.getQuarter(),
+                    crime.getOffence(),
+                    crime.getOffence_code(),
+                    crime.getOffence_count()
             );
             crimeResults.add(cr);
         }

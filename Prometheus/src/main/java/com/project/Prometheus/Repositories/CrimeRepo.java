@@ -2,16 +2,10 @@ package com.project.Prometheus.Repositories;
 import jakarta.persistence.*; 
 import com.project.Prometheus.Constants.Filter;
 import com.project.Prometheus.Entities.CrimeEntity;
-import com.project.Prometheus.Entities.CrimeResult;
 
 import java.util.List;
 
-import javax.sql.DataSource;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.core.env.Environment;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -22,10 +16,19 @@ public class CrimeRepo{
 
     public List<CrimeEntity> getCrimes(Filter filter){
         // This method will query the database and return a list of crimes based on the filter
-        return entityManager.createQuery("SELECT c FROM CrimeEntity c WHERE c.OFFENCE = :OFFENCE", CrimeEntity.class)
-                .setParameter("OFFENCE", filter.getType())
-                // .setParameter("startDate", filter.getStartDate())
-                // .setParameter("endDate", filter.getEndDate())
+        return entityManager.createQuery("SELECT c\r\n" + 
+                        "FROM CrimeEntity c\r\n" + 
+                        "WHERE c.offence = :offence\r\n" + 
+                        "AND (\r\n" + 
+                        "    (c.year > :startYear OR (c.year = :startYear AND c.quarter >= :startQuarter))\r\n" + 
+                        "AND\r\n" + //
+                        "    (c.year < :endYear OR (c.year = :endYear AND c.quarter <= :endQuarter))\r\n" + 
+                        ")", CrimeEntity.class)
+                .setParameter("offence", filter.getType())
+                .setParameter("endQuarter", filter.getEndDate().quarter())
+                .setParameter("endYear", filter.getEndDate().year())
+                .setParameter("startQuarter", filter.getStartDate().quarter())
+                .setParameter("startYear", filter.getStartDate().year())
                 .getResultList();
     }
 }
