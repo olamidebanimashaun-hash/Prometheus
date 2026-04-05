@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.project.Prometheus.Constants.Filter;
 import com.project.Prometheus.Entities.CrimeEntity;
-import com.project.Prometheus.Entities.CrimeResult;
 import com.project.Prometheus.Repositories.CrimeRepo;
+import com.project.Prometheus.Result.CrimeResult;
 
 @Service
 public class CrimeService {
