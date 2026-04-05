@@ -6,6 +6,7 @@ Create Java based API
         have a filter request that loads different options
         amount of offences in an area(specific area, all area, change offence type)
     Creates a prediction on the data and appends the result
+    protect against injection attacks
 
 Create Simple UI
     Graphs
