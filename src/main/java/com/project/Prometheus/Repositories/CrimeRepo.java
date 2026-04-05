@@ -16,14 +16,12 @@ public class CrimeRepo{
 
     public List<CrimeEntity> getCrimes(Filter filter){
         // This method will query the database and return a list of crimes based on the filter
-        return entityManager.createQuery("SELECT c\r\n" + 
-                        "FROM CrimeEntity c\r\n" + 
-                        "WHERE c.offence = :offence\r\n" + 
-                        "AND (\r\n" + 
-                        "    (c.year > :startYear OR (c.year = :startYear AND c.quarter >= :startQuarter))\r\n" + 
-                        "AND\r\n" + //
-                        "    (c.year < :endYear OR (c.year = :endYear AND c.quarter <= :endQuarter))\r\n" + 
-                        ")", CrimeEntity.class)
+        return entityManager.createQuery("SELECT c " + 
+                        "FROM CrimeEntity c " + 
+                        "WHERE c.offence = :offence " + 
+                        "AND ((c.year > :startYear OR (c.year = :startYear AND c.quarter >= :startQuarter)) " + 
+                        "AND (c.year < :endYear OR (c.year = :endYear AND c.quarter <= :endQuarter))) ", 
+                        CrimeEntity.class)
                 .setParameter("offence", filter.getType())
                 .setParameter("endQuarter", filter.getEndDate().quarter())
                 .setParameter("endYear", filter.getEndDate().year())
