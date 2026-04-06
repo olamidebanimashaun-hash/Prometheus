@@ -1,33 +1,23 @@
 package com.project.Prometheus.Constants;
 
+
+import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class Filter {
-    public String type;
-    public String endDate;
-    public String startDate;
-    public String offenceCode;
+    @NotNull private String type;
+    @NotNull private String endDate;
+    @NotNull private String startDate;
+    @NotNull private String offenceType;
+    @NotNull private String offenceCode;
+    @NotNull private String offence;
+    @NotNull private String region;
+    @NotNull private String gardaDivision;
 
-    public String getType() {
-        return type;
-    }
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
-    }
-
-    public void setStartDate(String startDate) {
-        this.startDate = startDate;
-    }
-    public String getOffenceCode() {
-        return offenceCode;
-    }
-    public void setOffenceCode(String offenceCode) {
-        this.offenceCode = offenceCode;
-    }
-
-    public DateRange getEndDate() {
+    public DateRange getValidEndDate() {
     if (endDate.matches("\\d{4}Q[1-4]")) {
         int year = Integer.parseInt(endDate.substring(0, 4));
         int quarter = Integer.parseInt(endDate.substring(5));
@@ -37,7 +27,8 @@ public class Filter {
             throw new IllegalArgumentException("Invalid format: " + endDate);
         }
     }
-    public DateRange getStartDate() {
+    
+    public DateRange getValidStartDate() {
     if (startDate.matches("\\d{4}Q[1-4]")) {
         int year = Integer.parseInt(startDate.substring(0, 4));
         int quarter = Integer.parseInt(startDate.substring(5));
