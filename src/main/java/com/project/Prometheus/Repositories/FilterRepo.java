@@ -12,7 +12,7 @@ public class FilterRepo {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public List<String> getDistinctField(String fieldName) {
+    public List<String> getInitialDistinctField(String fieldName) {
         return entityManager.createQuery(
             "SELECT DISTINCT c." + fieldName + " FROM CrimeEntity c",
             String.class

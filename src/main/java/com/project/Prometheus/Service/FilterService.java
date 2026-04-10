@@ -15,7 +15,7 @@ public class FilterService {
 
     public List<String> getFilter(String fieldName) {
         fieldName = Santization.sanitizeInput(fieldName);
-        return filterRepo.getDistinctField(fieldName);
+        return filterRepo.getInitialDistinctField(fieldName);
     }
 }
 

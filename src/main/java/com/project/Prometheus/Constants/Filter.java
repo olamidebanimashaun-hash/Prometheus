@@ -8,14 +8,13 @@ import lombok.Setter;
 @Setter
 @Getter
 public class Filter {
-    @NotNull private String type;
     @NotNull private String endDate;
     @NotNull private String startDate;
-    @NotNull private String offenceType;
-    @NotNull private String offenceCode;
-    @NotNull private String offence;
-    @NotNull private String region;
-    @NotNull private String gardaDivision;
+    @NotNull private String[] offenceType;
+    @NotNull private String[] offenceCode;
+    @NotNull private String[] offence;
+    @NotNull private String[] region;
+    @NotNull private String[] gardaDivision;
 
     public DateRange getValidEndDate() {
     if (endDate.matches("\\d{4}Q[1-4]")) {

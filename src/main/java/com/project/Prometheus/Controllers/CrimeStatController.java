@@ -6,7 +6,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -41,5 +40,10 @@ public class CrimeStatController {
     return  crimeService.getCrimes(filter);
   }
 
+  @Async 
+  @PostMapping("/area-offence")
+  public List<CrimeResult> AreaOffence(@Valid @RequestBody Filter filter) {
+    return  crimeService.getAreaCrimes(filter);
+  }
 
 }

@@ -1,7 +1,9 @@
 package com.project.Prometheus.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,6 +36,35 @@ public class CrimeService {
         }
 
         return crimeResults;
+    }
+
+
+        public List<CrimeResult> getAreaCrimes(Filter filter) {
+            List<CrimeEntity> crimes = crimeRepo.getGroupedCrimes(filter);
+
+            Map<String, CrimeResult> grouped = new HashMap<>();
+
+            for (CrimeEntity crime : crimes) {
+                String key = crime.getGarda_division() + "_" + crime.getOffence();
+
+                if (!grouped.containsKey(key)) {
+                    grouped.put(key, new CrimeResult(
+                            crime.getGarda_division(),
+                            null, // year optional now
+                            null, // quarter optional
+                            crime.getOffence(),
+                            crime.getOffence_code(),
+                            0
+                    ));
+                }
+
+                CrimeResult existing = grouped.get(key);
+                existing.setOffence_count(
+                        existing.getOffence_count() + crime.getOffence_count()
+                );
+            }
+            List<CrimeResult> crimeResults = new ArrayList<>(grouped.values());
+            return crimeResults;
     }
     
 
